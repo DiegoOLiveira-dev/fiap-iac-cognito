@@ -1,4 +1,4 @@
-name: Construir Cluster EKS com Terraform
+name: Provisionar cognito
 
 on:
   push:
