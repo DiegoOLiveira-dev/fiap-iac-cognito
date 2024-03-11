@@ -1,4 +1,4 @@
-name: Destruir cognitor
+name: Destruir cognito
 
 on:
   workflow_dispatch:
