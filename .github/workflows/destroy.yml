@@ -1,4 +1,4 @@
-name: Destruir cluster
+name: Destruir cognitor
 
 on:
   workflow_dispatch:
