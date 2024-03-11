@@ -1,0 +1,38 @@
+name: Construir Cluster EKS com Terraform
+
+on:
+  push:
+    branches:
+      - main  # ajuste conforme sua branch principal
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v2
+
+      - name: Configurar AWS CLI
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: us-east-1  # substitua pela sua região da AWS
+
+      - name: Setup Terraform
+        uses: hashicorp/setup-terraform@v2
+        with:
+          terraform_version: 1.4.2
+
+      - name: Inicializar Terraform
+        run: terraform init
+
+      - name: Buscar tfstate atual
+        run: terraform state pull > terraform.tfstate
+
+      - name: Planificar Infraestrutura
+        run: terraform plan -out=plano.tfplan
+
+      - name: Aplicar Infraestrutura
+        run: terraform apply -auto-approve plano.tfplan
