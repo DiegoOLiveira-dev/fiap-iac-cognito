@@ -10,5 +10,5 @@ Repositório de código e infraestrutura do **serviço de autenticação de usu�
 
 ## Descrição
 
-Este repositorio cria o pool de usuario do cognito para autenticacao oAuth que sera implementada no gateway aws <url> 
+Este repositorio cria o pool de usuario do cognito para autenticacao oAuth que sera implementada no gateway aws https://github.com/DiegoOLiveira-dev/fiap-tech-challenge-soat-gateway
 
